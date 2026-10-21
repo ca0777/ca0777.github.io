@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  // Apply the saved theme before first paint so there is no dark-to-light flash
+  try { if (localStorage.getItem('theme') === 'light') document.documentElement.setAttribute('data-theme', 'light'); } catch (e) {}
+</script>
+<title>Chirag Arora SEO</title>
+<meta name="description" content="Chirag Arora — Senior SEO Executive specialising in technical SEO, AEO/GEO, local SEO and link building. 6+ years across India and Canada.">
+<meta property="og:title" content="Chirag Arora | Senior SEO Executive">
+<meta property="og:description" content="Technical SEO, AEO/GEO, local SEO and link building. 6+ years across India and Canada.">
+<meta property="og:image" content="https://ca0777.github.io/photos/chirag-portrait.webp">
+<link rel="canonical" href="https://ca0777.github.io/">
+<meta property="og:url" content="https://ca0777.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: single 1200px column on a near-black canvas; sections separated by surface tone, not borders (Honza-style dark portfolio) */
+:root {
+  --bg: #111111;
+  --surface: #1b1b1b;
+  --surface-2: #242424;
+  --line: #2e2e2e;
+  --glass: rgba(255, 255, 255, 0.08);
+  --tile: #f4f4f2;
+  --fg: #ffffff;
+  --muted: #b9b9b9;
+  --dim: #8a8a8a;
+  --green: #61ef66;
+  --yellow: #e1c915;
+  --font: "Inter", "Inter Placeholder", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-card: 16px;
+  --r-sm: 12px;
+  --r-pill: 40px;
+  --maxw: 1200px;
+  color-scheme: dark;
+}
+/* Light theme: same tokens, swapped values. Green is deepened so it passes contrast as text on white. */
+:root[data-theme="light"] {
+  --bg: #f5f5f2;
+  --surface: #ffffff;
+  --surface-2: #eeeeea;
+  --line: #e0e0db;
+  --glass: rgba(0, 0, 0, 0.05);
+  --tile: #ffffff;
+  --fg: #111111;
+  --muted: #4b4b4b;
+  --dim: #6b6b6b;
+  --green: #17913a;
+  --yellow: #a88a00;
+  color-scheme: light;
+}
+:root[data-theme="light"] .grad { background-image: linear-gradient(0deg, #6f6f6f 10%, var(--fg) 85%); }
+:root[data-theme="light"] .btn-ghost:hover { background: rgba(0,0,0,.09); }
+:root[data-theme="light"] .serp { box-shadow: 0 30px 80px -40px rgba(0,0,0,.25); }
+:root[data-theme="light"] .result .t { color: #1a0dab; }
+:root[data-theme="light"] .win .client { background: rgba(255,255,255,.85); box-shadow: inset 0 0 0 1px var(--line); }
+:root[data-theme="light"] .role-body li::before { background: #c4c4c0; }
+:root[data-theme="light"] .portrait .badge { background: rgba(255,255,255,.82); }
+:root[data-theme="light"] .portrait::after { background: linear-gradient(180deg, rgba(245,245,242,0) 60%, rgba(245,245,242,.6) 100%); }
+:root[data-theme="light"] .copy:hover { background: var(--line); }
+:root[data-theme="light"] .tip { box-shadow: 0 16px 40px rgba(0,0,0,.14); }
+:root[data-theme="light"] .client-tip > strong { border-bottom-color: rgba(23,145,58,.5); }
+:root[data-theme="light"] .logo-tile { box-shadow: inset 0 0 0 1px var(--line); }
+:root[data-theme="light"] .stat, :root[data-theme="light"] .svc, :root[data-theme="light"] .win, :root[data-theme="light"] .role,
+:root[data-theme="light"] .fact, :root[data-theme="light"] .kit-col, :root[data-theme="light"] .award, :root[data-theme="light"] .faq,
+:root[data-theme="light"] .cta-box, :root[data-theme="light"] .serp { box-shadow: 0 1px 2px rgba(0,0,0,.04), inset 0 0 0 1px var(--line); }
+body, .nav-inner, .stat, .svc, .win, .role, .fact, .kit-col, .award, .faq, .cta-box, .serp, .chip, .btn { transition: background-color .3s ease, color .3s ease; }
+
+/* Theme toggle */
+.theme-toggle {
+  width: 40px; height: 40px; flex: none; display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: var(--glass); color: var(--fg); cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.theme-toggle:hover { transform: rotate(-12deg); background: var(--surface-2); }
+.theme-toggle:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.theme-toggle svg { width: 18px; height: 18px; }
+.theme-toggle .ic-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .ic-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .ic-moon { display: block; }
+.nav-actions { display: flex; align-items: center; gap: 8px; }
+.nav .btn { gap: 0; }
+@media (max-width: 480px) { .hide-sm { display: none; } }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3, h4 { margin: 0; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
+p { margin: 0; }
+
+.wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 24px; }
+section { padding-block: 96px; }
+@media (max-width: 809px) { section { padding-block: 64px; } .wrap { padding-inline: 16px; } }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  padding-block: 14px;
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border-radius: var(--r-pill);
+  padding: 8px 8px 8px 20px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; white-space: nowrap; }
+.brand-mark {
+  width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--fg); color: var(--bg); font-size: 12px; font-weight: 700; overflow: hidden;
+}
+.brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--muted); }
+.nav-links a:hover { color: var(--fg); }
+@media (max-width: 900px) { .nav-links { display: none; } }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 12px 20px; border-radius: var(--r-pill);
+  font-size: 15px; font-weight: 600; white-space: nowrap;
+  transition: transform .2s ease, background .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--fg); color: var(--bg); }
+.btn-ghost { background: var(--glass); color: var(--fg); }
+.btn-ghost:hover { background: rgba(255,255,255,.14); }
+.btn svg { width: 16px; height: 16px; flex: none; }
+.nav .btn { padding: 10px 16px; font-size: 14px; }
+
+/* ---------- Shared ---------- */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--dim);
+}
+.h2 { font-size: clamp(32px, 4.4vw, 48px); line-height: 1.15; }
+.grad {
+  background: linear-gradient(0deg, #8f8f8f 10%, var(--fg) 85%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lead { color: var(--muted); font-size: 18px; max-width: 60ch; }
+.sec-head { display: grid; gap: 14px; margin-bottom: 48px; }
+.sec-head.split { grid-template-columns: 1fr auto; align-items: end; gap: 24px; }
+@media (max-width: 809px) { .sec-head.split { grid-template-columns: 1fr; } }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 72px 56px; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+@media (max-width: 1000px) { .hero-grid { grid-template-columns: 1fr; gap: 48px; } }
+.hero-copy { display: grid; gap: 28px; min-width: 0; }
+.status {
+  justify-self: start;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px; border-radius: var(--r-pill);
+  background: var(--glass); font-size: 14px; font-weight: 500; color: var(--muted);
+}
+.status-avatar { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; margin-left: -6px; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(97,239,102,.6); animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(97,239,102,.55); } 70% { box-shadow: 0 0 0 9px rgba(97,239,102,0); } 100% { box-shadow: 0 0 0 0 rgba(97,239,102,0); } }
+.hero h1 { font-size: clamp(42px, 6.6vw, 88px); line-height: 1.05; letter-spacing: -0.025em; }
+.hero .lead { font-size: clamp(17px, 1.6vw, 20px); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font-size: 13px; color: var(--muted); padding: 6px 12px; border-radius: var(--r-pill); background: var(--surface-2); }
+
+/* SERP / AI answer mock — the hero visual */
+.serp {
+  background: var(--surface); border-radius: 20px; padding: 20px;
+  display: grid; gap: 14px; min-width: 0;
+  box-shadow: 0 30px 80px -30px rgba(0,0,0,.8);
+}
+.serp-bar {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--surface-2); border-radius: var(--r-pill); padding: 11px 16px;
+  font-size: 14px; color: var(--fg);
+}
+.serp-bar svg { width: 16px; height: 16px; color: var(--dim); flex: none; }
+.caret { display: inline-block; width: 1px; height: 16px; background: var(--fg); margin-left: 1px; vertical-align: -3px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.ai-box { background: var(--surface-2); border-radius: var(--r-sm); padding: 16px; display: grid; gap: 10px; }
+.ai-label { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.ai-box p { font-size: 14px; color: var(--muted); }
+.ai-box b { color: var(--fg); font-weight: 600; }
+.cite { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--dim); background: var(--bg); border-radius: var(--r-pill); padding: 4px 10px; justify-self: start; }
+.result { display: grid; gap: 4px; padding: 4px 4px 0; }
+.result .url { font-size: 12px; color: var(--dim); overflow-wrap: anywhere; }
+.result .t { font-size: 17px; font-weight: 600; color: #9ec5ff; }
+.result .d { font-size: 13px; color: var(--muted); }
+.rank { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--dim); border-top: 1px solid var(--line); padding-top: 12px; }
+.rank strong { color: var(--green); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* ---------- Stats ---------- */
+.trust { padding-block: 40px 80px; }
+.trust-head { text-align: center; display: grid; gap: 8px; margin-bottom: 28px; }
+.marquee {
+  overflow: hidden; margin-bottom: 56px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+}
+.marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 32s linear infinite; }
+.marquee-track { gap: 16px; }
+.logo-tile { flex: none; display: grid; place-items: center; height: 76px; padding-inline: 28px; border-radius: var(--r-sm); background: var(--tile); }
+.logo-tile img { height: 40px; width: auto; max-width: none; display: block; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .stats { grid-template-columns: 1fr; } }
+.stat { background: var(--surface); border-radius: var(--r-card); padding: 28px 24px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.stat .num { font-size: clamp(40px, 5vw, 60px); font-weight: 600; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stat .lbl { color: var(--muted); font-size: 14px; }
+.stat .src { font-size: 12px; font-weight: 600; color: var(--dim); letter-spacing: .02em; margin-bottom: 8px; }
+
+/* ---------- Services ---------- */
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .services { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .services { grid-template-columns: 1fr; } }
+.svc { background: var(--surface); border-radius: var(--r-card); padding: 28px; display: grid; gap: 14px; align-content: start; transition: background .25s ease, transform .25s ease; }
+.svc:hover { background: var(--surface-2); transform: translateY(-4px); }
+.svc-ic { width: 44px; height: 44px; border-radius: var(--r-sm); background: var(--surface-2); display: grid; place-items: center; }
+.svc:hover .svc-ic { background: var(--bg); }
+.svc-ic svg { width: 22px; height: 22px; color: var(--fg); }
+.svc h3 { font-size: 22px; line-height: 1.3; }
+.svc .tag { font-size: 14px; font-weight: 600; color: var(--green); }
+.svc p { color: var(--muted); font-size: 15px; }
+.center-cta { display: flex; justify-content: center; margin-top: 40px; }
+
+/* ---------- Selected wins ---------- */
+/* Manual carousel: native horizontal scroll with snap, arrow buttons step one card */
+.wins {
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  scrollbar-width: none; overscroll-behavior-x: contain; outline: none; padding-bottom: 2px;
+}
+.wins::-webkit-scrollbar { display: none; }
+.wins:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; border-radius: var(--r-card); }
+.wins > .win { flex: 0 0 calc((100% - 32px) / 3); scroll-snap-align: start; }
+@media (max-width: 1000px) { .wins > .win { flex-basis: calc((100% - 16px) / 2); } }
+@media (max-width: 640px) { .wins > .win { flex-basis: 86%; } }
+.wins-ctrl { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.wins-btn {
+  width: 44px; height: 44px; display: grid; place-items: center; flex: none;
+  border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--fg);
+  cursor: pointer; transition: background .2s, opacity .2s, border-color .2s;
+}
+.wins-btn svg { width: 18px; height: 18px; }
+.wins-btn:hover:not(:disabled) { background: var(--surface-2); border-color: var(--green); }
+.wins-btn:disabled { opacity: .35; cursor: default; }
+.win {
+  position: relative; overflow: hidden;
+  background: var(--surface); border-radius: var(--r-card);
+  min-height: 380px; padding: 28px; display: grid; align-content: space-between; gap: 32px;
+}
+.win-art {
+  position: absolute; inset: 0 0 auto 0; width: 100%; height: 52%; opacity: .9; pointer-events: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(180deg, #000 55%, transparent);
+}
+.win-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0) 25%, var(--surface) 78%); }
+.win > *:not(.win-art) { position: relative; }
+.win .client { justify-self: start; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: var(--r-pill); background: rgba(0,0,0,.45); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.win .big { font-size: clamp(44px, 5vw, 64px); font-weight: 600; line-height: 1; letter-spacing: -0.03em; }
+.win h3 { font-size: 20px; line-height: 1.35; margin-top: 10px; }
+.win p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+/* ---------- Experience ---------- */
+.roles { display: grid; gap: 12px; }
+.role {
+  background: var(--surface); border-radius: var(--r-card);
+  padding: 28px; display: grid; grid-template-columns: 240px 1fr; gap: 32px;
+}
+@media (max-width: 809px) { .role { grid-template-columns: 1fr; gap: 16px; padding: 22px; } }
+.role-meta { display: grid; gap: 6px; align-content: start; }
+.role-meta .when { font-size: 13px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.role-meta .where { font-size: 13px; color: var(--dim); }
+.now { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--green); }
+.now .dot { width: 6px; height: 6px; }
+.role-body { display: grid; gap: 12px; min-width: 0; }
+.role-body h3 { font-size: 22px; line-height: 1.3; }
+.role-body h3 span { color: var(--dim); font-weight: 500; }
+.role-body ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.role-body li { position: relative; padding-left: 20px; color: var(--muted); font-size: 15px; }
+.role-body li::before { content: ""; position: absolute; left: 2px; top: .68em; width: 6px; height: 6px; border-radius: 50%; background: #555; }
+/* Client hover cards: highlighted client name reveals a small profile card on hover, focus or tap */
+.client-tip { position: relative; display: inline-block; cursor: help; outline: none; }
+.client-tip > strong { color: var(--green); font-weight: 600; border-bottom: 1px dashed rgba(97, 239, 102, .55); transition: border-color .2s; }
+.client-tip:hover > strong, .client-tip:focus > strong { border-bottom-color: var(--green); }
+.client-tip:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+.tip {
+  position: absolute; left: 0; top: calc(100% + 10px); z-index: 30;
+  width: min(360px, calc(100vw - 64px)); padding: 16px;
+  display: grid; gap: 8px;
+  background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-sm);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .5);
+  font-size: 13px; line-height: 1.45; color: var(--muted); white-space: normal;
+  opacity: 0; visibility: hidden; transform: translateY(-4px); pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+.tip::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; } /* hover bridge across the gap */
+.client-tip:hover .tip, .client-tip:focus .tip, .client-tip:focus-within .tip { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+.tip-name { color: var(--fg); font-weight: 600; font-size: 14px; }
+.tip-row { display: grid; grid-template-columns: 82px 1fr; gap: 8px; }
+.tip-row > span:first-child { color: var(--dim); }
+.tip-row.stack { grid-template-columns: 1fr; gap: 6px; padding-top: 4px; border-top: 1px solid var(--line); margin-top: 4px; }
+.tip-issues { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
+.tip-issues span { padding: 3px 9px; border-radius: var(--r-pill); background: var(--glass); color: var(--fg); font-size: 12px; }
+
+/* ---------- About ---------- */
+.about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+@media (max-width: 1000px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+.portrait {
+  position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 20px; overflow: hidden;
+  margin: 0; background: var(--surface);
+}
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.photo-stack { display: grid; gap: 12px; min-width: 0; }
+@media (max-width: 1000px) { .photo-stack { max-width: 520px; } }
+.portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,17,0) 55%, var(--bg) 100%); }
+.portrait .badge {
+  position: absolute; z-index: 1; left: 16px; right: 16px; bottom: 16px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: rgba(255,255,255,.1); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border-radius: var(--r-sm); padding: 12px 16px; font-size: 14px;
+}
+.portrait .badge span { color: var(--muted); }
+.about-copy { display: grid; gap: 24px; min-width: 0; }
+.about-copy p { color: var(--muted); font-size: 17px; max-width: 62ch; }
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (max-width: 560px) { .facts { grid-template-columns: 1fr; } }
+.fact { background: var(--surface); border-radius: var(--r-sm); padding: 16px 18px; display: grid; gap: 4px; }
+.fact .k { font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+.fact .v { font-size: 15px; font-weight: 500; }
+.fact .s { font-size: 13px; color: var(--dim); }
+
+/* ---------- Toolkit ---------- */
+.kit { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .kit { grid-template-columns: 1fr; } }
+.kit-col { background: var(--surface); border-radius: var(--r-card); padding: 28px; display: grid; gap: 18px; align-content: start; }
+.kit-col h3 { font-size: 18px; }
+.kit-col .chips .chip { background: var(--surface-2); color: var(--fg); font-size: 14px; padding: 8px 14px; }
+
+/* ---------- Awards ---------- */
+.awards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 1000px) { .awards { grid-template-columns: 1fr; } }
+.award { background: var(--surface); border-radius: var(--r-card); padding: 28px; display: grid; gap: 10px; align-content: start; }
+.award .stars { color: var(--yellow); font-size: 15px; letter-spacing: 2px; }
+.award h3 { font-size: 20px; line-height: 1.35; }
+.award p { color: var(--muted); font-size: 14px; }
+
+/* ---------- CTA ---------- */
+.cta-box {
+  position: relative; overflow: hidden;
+  background: var(--surface); border-radius: 24px;
+  padding: clamp(40px, 7vw, 88px) clamp(20px, 5vw, 64px);
+  text-align: center; display: grid; gap: 24px; justify-items: center;
+}
+.cta-box::before {
+  content: ""; position: absolute; width: 520px; height: 520px; left: 50%; top: -340px; transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(97,239,102,.16) 0%, rgba(97,239,102,0) 65%); pointer-events: none;
+}
+.cta-box > * { position: relative; }
+.cta-box h2 { font-size: clamp(34px, 5.2vw, 64px); line-height: 1.1; max-width: 16ch; }
+.cta-box .lead { margin-inline: auto; }
+.contact-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.copy {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--surface-2); color: var(--fg); border: 0; cursor: pointer;
+  font: 500 14px/1 var(--font); padding: 11px 16px; border-radius: var(--r-pill);
+  user-select: all;
+}
+.copy small { color: var(--dim); font-size: 12px; }
+.copy:hover { background: #2e2e2e; }
+
+/* ---------- Footer ---------- */
+footer { padding-block: 40px 56px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; border-top: 1px solid var(--line); padding-top: 28px; font-size: 14px; color: var(--dim); }
+.foot nav { display: flex; flex-wrap: wrap; gap: 24px; }
+.foot a:hover { color: var(--fg); }
+
+/* ---------- Motion ---------- */
+.rise { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+.rise.d1 { animation-delay: .08s; } .rise.d2 { animation-delay: .16s; } .rise.d3 { animation-delay: .24s; } .rise.d4 { animation-delay: .32s; }
+@keyframes rise { from { transform: translateY(18px); opacity: .001; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+/* ---------- FAQ ---------- */
+.faqs { display: grid; gap: 10px; max-width: 880px; }
+.faq { background: var(--surface); border-radius: var(--r-card); }
+.faq summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 22px 24px; font-size: 17px; font-weight: 600; line-height: 1.4; border-radius: var(--r-card);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--green); }
+.faq summary:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.faq-ic { position: relative; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--surface-2); }
+.faq-ic::before, .faq-ic::after { content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 2px; margin: -1px 0 0 -5.5px; border-radius: 2px; background: currentColor; transition: transform .2s ease; }
+.faq-ic::after { transform: rotate(90deg); }
+.faq[open] .faq-ic::after { transform: rotate(0deg); }
+.faq[open] summary { color: var(--fg); }
+.faq p { padding: 0 24px 22px; color: var(--muted); font-size: 15px; max-width: 760px; }
+@media (max-width: 809px) { .faq summary { padding: 18px 20px; font-size: 16px; } .faq p { padding: 0 20px 18px; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://ca0777.github.io/#person",
+  "name": "Chirag Arora",
+  "url": "https://ca0777.github.io/",
+  "image": "https://ca0777.github.io/photos/chirag-portrait.webp",
+  "jobTitle": "Senior SEO Executive",
+  "description": "SEO specialist with 6+ years in technical SEO, content strategy, link building and AI search visibility (AEO/GEO) across India and Canada.",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Ksolves India Ltd.",
+    "url": "https://www.ksolves.com/"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Delhi",
+    "addressCountry": "IN"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Lambton College",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mississauga",
+        "addressCountry": "CA"
+      }
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Amity University",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Noida",
+        "addressCountry": "IN"
+      }
+    }
+  ],
+  "knowsAbout": [
+    "Search Engine Optimization",
+    "Technical SEO",
+    "Answer Engine Optimization (AEO)",
+    "Generative Engine Optimization (GEO)",
+    "Local SEO",
+    "Link Building",
+    "Keyword Research",
+    "Content Strategy",
+    "Google Analytics 4",
+    "Google Search Console"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/chiragarora0777/",
+    "https://github.com/ca0777"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Chirag Arora?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chirag Arora is a Senior SEO Executive at Ksolves, where he manages SEO for the Ksolves website. He has 6+ years of experience in technical SEO, content strategy, link building and AI search visibility (AEO/GEO), working with agencies, SaaS companies and in-house teams in India and Canada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes your SEO approach different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I optimise for two audiences: Google's blue links and AI answer engines like ChatGPT, Perplexity and Google AI Overviews. At Ksolves, that approach grew AI-search traffic 22x and AI-sourced leads ~85x."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Have you worked with international clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. I've worked with businesses in India, Canada and Europe, including Fresh Tracks Canada (luxury travel), Stride Europe (fitness equipment) and No Problem Movers (Mississauga). Early in my career, I audited sites for 10+ international clients at ClixLogix and built backlinks for their target keywords."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is AEO and GEO, and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AEO (Answer Engine Optimisation) and GEO (Generative Engine Optimisation) help your brand get cited in AI-generated answers. More buyers now ask ChatGPT or Perplexity instead of searching Google, so if AI tools don't mention you, you're invisible to those buyers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you get my brand mentioned in ChatGPT or Google AI Overviews?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No one can guarantee AI citations. But you can make your brand much easier to cite with answer-ready content, clear entity signals, structured data and authoritative mentions. These are the same methods I used to grow AI-sourced leads ~85x at Ksolves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is traditional SEO still worth it with AI search growing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AI answer engines pull heavily from pages that already rank well and are technically sound. Strong technical SEO, content and backlinks are still the foundation, and AEO/GEO builds on top of them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which industries have you worked in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Technology services (Salesforce, AI/ML, Big Data, DevOps), finance (Bajaj Finserv), travel, fitness eCommerce, local services and moving companies. The industry changes, but the method stays the same: fix the technical base, then build content and authority."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which CMS platforms have you worked with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WordPress, Wix, DatoCMS (headless) and Odoo. I've also migrated a site from Wix to WordPress with zero ranking loss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle local SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. I've managed Google Business Profiles, citations and local rankings with BrightLocal for businesses in Canada. One example is the No Problem Movers Mississauga location, where local calls doubled."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does SEO take to show results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Technical fixes can show impact within weeks. Content and authority usually take 3-6 months to compound. A new blog section I launched at TechMagnate drove 50,000+ organic visits in its first month, but results depend on competition and the site's starting point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you lead teams or work hands-on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. At Ksolves I lead a 6-member team (writers, an SEO executive, a developer and a designer), and I'm still hands-on with audits, keyword strategy and client projects like Fresh Tracks Canada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the SEO win you're proudest of?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At Ksolves, I analysed our Big Data technology pages and spotted a gap: we had no dedicated support pages for each technology. I proposed separate support pages for each one, along with matching migration pages. The search volume was low, but the intent was high. People searching those terms needed help right away. Within a short time, those pages started bringing in quality leads. It's a reminder that the best keyword isn't always the biggest one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What SEO myth do you wish would die?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\"SEO is dead because of AI.\" The opposite is true: AI search rewards the same fundamentals, and the stakes are higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did you move from Canada back to India?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Family. The plan was always to settle in India with my family. My years in Mississauga gave me hands-on experience with Canadian businesses and markets, and I now bring that to clients in Canada, Europe and beyond, working from India."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark"><img src="photos/chirag-headshot.webp" alt="" width="30" height="30"></span>Chirag Arora</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#services">Services</a>
+        <a href="#work">Results</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About Me</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="#faq">FAQs</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">
+          <span class="hide-sm">Connect on&nbsp;</span>LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="status rise"><img class="status-avatar" src="photos/chirag-headshot.webp" alt="Chirag Arora" width="28" height="28"><span class="dot"></span>Senior SEO Executive at Ksolves</span>
+        <h1 class="rise d1">I'm Chirag! <span class="grad">SEO specialist for search and AI answers</span></h1>
+        <p class="lead rise d2">6+ years helping agencies, SaaS companies and in-house teams in India and Canada get found. I combine technical audits, keyword strategy and link building with AI search visibility (AEO/GEO).</p>
+        <div class="hero-ctas rise d3">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn
+          </a>
+          <a class="btn btn-ghost" href="#work">See my results</a>
+        </div>
+        <div class="chips rise d4">
+          <span class="chip">SEO</span><span class="chip">AEO</span><span class="chip">GEO</span><span class="chip">Technical SEO</span><span class="chip">Local SEO</span><span class="chip">Link Building</span>
+        </div>
+      </div>
+
+      <div class="serp rise d2" aria-label="Illustration of a search result and AI answer">
+        <div class="serp-bar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>who can grow my organic traffic<span class="caret"></span></span>
+        </div>
+        <div class="ai-box">
+          <div class="ai-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.6L21 11l-6.8 2.4L12 20l-2.2-6.6L3 11l6.8-2.4z"/></svg>
+            AI Overview
+          </div>
+          <p><b>Chirag Arora</b> is a Senior SEO Executive with 6+ years in technical SEO, content optimisation, link building and <b>AEO/GEO</b>. He currently leads a 6-member SEO and content team at Ksolves.</p>
+          <span class="cite">Source · linkedin.com/in/chiragarora0777</span>
+        </div>
+        <div class="result">
+          <span class="url">linkedin.com › in › chiragarora0777</span>
+          <span class="t">Chirag Arora – Senior SEO Executive · Delhi, India</span>
+          <span class="d">Technical, On-Page, Off-Page, Local SEO and AI search visibility. Ksolves · TechMagnate · DigiGenius…</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST + STATS -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="trust-head">
+        <span class="eyebrow">Trusted by teams in India and Canada</span>
+      </div>
+      <div class="marquee" aria-label="Companies and brands I have worked with">
+        <div class="marquee-track">
+          <span class="logo-tile"><img src="logos/web/ksolves.webp" alt="Ksolves logo" height="40" loading="lazy"></span>
+          <span class="logo-tile"><img src="logos/web/bajaj-finserv.webp" alt="Bajaj Finserv logo" height="40" loading="lazy"></span>
+          <span class="logo-tile"><img src="logos/web/techmagnate.webp" alt="TechMagnate logo" height="40" loading="lazy"></span>
+          <span class="logo-tile"><img src="logos/web/no-problem-movers.webp" alt="No Problem Movers logo" height="40" loading="lazy"></span>
+          <span class="logo-tile"><img src="logos/web/digigenius.webp" alt="DigiGenius logo" height="40" loading="lazy"></span>
+          <span class="logo-tile"><img src="logos/web/clixlogix.webp" alt="ClixLogix logo" height="40" loading="lazy"></span>
+          <span class="logo-tile"><img src="logos/web/fresh-tracks-canada.webp" alt="Fresh Tracks Canada logo" height="40" loading="lazy"></span>
+          <span class="logo-tile"><img src="logos/web/stride-europe.webp" alt="Stride Europe logo" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/ksolves.webp" alt="" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/bajaj-finserv.webp" alt="" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/techmagnate.webp" alt="" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/no-problem-movers.webp" alt="" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/digigenius.webp" alt="" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/clixlogix.webp" alt="" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/fresh-tracks-canada.webp" alt="" height="40" loading="lazy"></span>
+          <span class="logo-tile" aria-hidden="true"><img src="logos/web/stride-europe.webp" alt="" height="40" loading="lazy"></span>
+        </div>
+      </div>
+      <div class="sec-head" style="text-align:center; justify-items:center;">
+        <h2 class="h2">Real and <span class="grad">measurable results</span></h2>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="src">Ksolves · 2024 – Now</span><span class="num grad">+36%</span><span class="lbl">Organic leads YoY, with organic users up 8%</span></div>
+        <div class="stat"><span class="src">Ksolves · 2024 – Now</span><span class="num grad">900+</span><span class="lbl">Ranking blogs; case studies scaled from 6 to 150+</span></div>
+        <div class="stat"><span class="src">No Problem Movers · 2024</span><span class="num grad">Zero</span><span class="lbl">Rankings lost in a Wix to WordPress migration</span></div>
+        <div class="stat"><span class="src">DigiGenius · 2022 – 2024</span><span class="num grad">4</span><span class="lbl">In-house and client websites managed for SEO</span></div>
+        <div class="stat"><span class="src">TechMagnate · 2019 – 2021</span><span class="num grad">30K+</span><span class="lbl">Quora views in one month through niche Q&amp;A</span></div>
+        <div class="stat"><span class="src">ClixLogix · 2018 – 2019</span><span class="num grad">10+</span><span class="lbl">International clients audited and reported on</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Services</span>
+        <h2 class="h2">What I can <span class="grad">help you with</span></h2>
+        <p class="lead">I help businesses grow their organic presence, from crawlable site architecture to content that ranks in Google and gets cited by AI answer engines.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div>
+          <span class="tag">Fix what blocks rankings</span>
+          <h3>Technical SEO</h3>
+          <p>Site audits, site architecture, internal linking and Core Web Vitals fixes so search engines can crawl, render and index every page that matters.</p>
+        </article>
+        <article class="svc">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.4 5.6L20 11l-5.6 2.4L12 19l-2.4-5.6L4 11l5.6-2.4z"/></svg></div>
+          <span class="tag">Get cited by AI</span>
+          <h3>AEO &amp; GEO</h3>
+          <p>Answer-ready content and entity signals that help your brand show up in Google AI Overviews, ChatGPT, Perplexity and Claude.</p>
+        </article>
+        <article class="svc">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-4 3 2 5-6"/></svg></div>
+          <span class="tag">Rank for what buyers search</span>
+          <h3>Keyword &amp; Content Strategy</h3>
+          <p>Keyword research, topic clusters and on-page optimisation for landing pages, product pages, blogs, case studies and webinars.</p>
+        </article>
+        <article class="svc">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></div>
+          <span class="tag">Build authority</span>
+          <h3>Link Building</h3>
+          <p>Off-page campaigns at scale, from guest posting to backlink profile clean-up. Built 50+ backlinks a week for Bajaj Finserv.</p>
+        </article>
+        <article class="svc">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+          <span class="tag">Win the map pack</span>
+          <h3>Local SEO</h3>
+          <p>Google Business Profile, citations and local rankings managed with BrightLocal for service businesses in India and Canada.</p>
+        </article>
+        <article class="svc">
+          <div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+          <span class="tag">Track what matters</span>
+          <h3>Paid Ads &amp; Analytics</h3>
+          <p>Google Ads and Meta lead-gen campaigns run within budget, with GA4 and Search Console reporting.</p>
+        </article>
+      </div>
+      <div class="center-cta">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">Get in touch on LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED WINS -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div style="display:grid; gap:14px;">
+          <span class="eyebrow">Selected work</span>
+          <h2 class="h2">My recent <span class="grad">wins</span></h2>
+        </div>
+        <div class="wins-ctrl">
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">View full profile →</a>
+          <button class="wins-btn" type="button" data-dir="-1" aria-label="Previous wins" aria-controls="wins-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="wins-btn" type="button" data-dir="1" aria-label="Next wins" aria-controls="wins-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <div class="wins" id="wins-track" tabindex="0" aria-label="Recent wins, scroll horizontally">
+        <article class="win">
+          <canvas class="win-art" data-art="nodes" aria-hidden="true"></canvas>
+          <span class="client">Ksolves India Ltd.</span>
+          <div>
+            <div class="big grad">22x</div>
+            <h3>AI-search traffic, with AI-sourced leads up ~85x</h3>
+            <p>Built AI search visibility (AEO/GEO) across Salesforce, AI/ML, Big Data, DevOps and Microsoft 365 service lines.</p>
+          </div>
+        </article>
+        <article class="win">
+          <canvas class="win-art" data-art="pin" aria-hidden="true"></canvas>
+          <span class="client">No Problem Movers</span>
+          <div>
+            <div class="big grad">2x</div>
+            <h3>Local calls from the Mississauga location</h3>
+            <p>Owned local SEO for the moving company's Mississauga branch in Ontario, Canada.</p>
+          </div>
+        </article>
+        <article class="win">
+          <canvas class="win-art" data-art="climb" aria-hidden="true"></canvas>
+          <span class="client">DigiGenius · Techspirit Store</span>
+          <div>
+            <div class="big grad">5x</div>
+            <h3>Organic traffic for Techspirit Store in Brampton, Canada</h3>
+            <p>Managed SEO for the client at DigiGenius, combining on-page, local SEO and backlink work.</p>
+          </div>
+        </article>
+        <article class="win">
+          <canvas class="win-art" data-art="spike" aria-hidden="true"></canvas>
+          <span class="client">TechMagnate</span>
+          <div>
+            <div class="big grad">50,000+</div>
+            <h3>Organic visits in the first month of a new blog section</h3>
+            <p>Planned and launched the blog from scratch, ranking it for high-volume "Pradhan Mantri Awas Yojana" searches, then mentored new hires and ran SEO training sessions.</p>
+          </div>
+        </article>
+        <article class="win">
+          <canvas class="win-art" data-art="bars" aria-hidden="true"></canvas>
+          <span class="client">Bajaj Finserv</span>
+          <div>
+            <div class="big grad">50+/week</div>
+            <h3>Backlinks built, plus 30+ guest posts every month</h3>
+            <p>Led off-page SEO for the brand, then moved to on-page SEO for its home-loan vertical.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Experience</span>
+        <h2 class="h2">Where I've <span class="grad">worked</span></h2>
+      </div>
+      <div class="roles">
+        <article class="role">
+          <div class="role-meta">
+            <span class="now"><span class="dot"></span>Current</span>
+            <span class="when">Aug 2024 – Present</span>
+            <span class="where">Noida, India</span>
+          </div>
+          <div class="role-body">
+            <h3>Senior SEO Executive <span>· Ksolves India Ltd.</span></h3>
+            <ul>
+              <li>Lead the SEO function across technology service lines (Salesforce, AI/ML, Big Data, DevOps, Microsoft 365), managing a 6-member team of 3 content writers, 1 SEO executive, 1 developer and 1 designer.</li>
+              <li>Grew AI-search traffic 22x and AI-sourced leads ~85x.</li>
+              <li>Organic users up 8% and organic leads up 36% YoY (2026).</li>
+              <li>900+ ranking blogs; scaled case studies from 6 to 150+, driving 27x traffic.</li>
+              <li>Blog-driven leads up 2.7x; referral traffic up 2.5x and referral conversions up 6x.</li>
+              <li>Organic engagement rate up from 57% to 64%.</li>
+              <li><span class="client-tip" tabindex="0" aria-describedby="tip-ftc"><strong>Fresh Tracks Canada</strong><span class="tip" id="tip-ftc" role="tooltip">
+                <span class="tip-name">Fresh Tracks Canada</span>
+                <span class="tip-row"><span>Industry</span><span>Travel &amp; tourism, luxury Canadian travel packages</span></span>
+                <span class="tip-row"><span>Market</span><span>Mainly Canada</span></span>
+                <span class="tip-row"><span>Business</span><span>B2B &amp; B2C</span></span>
+                <span class="tip-row"><span>Tech</span><span>DatoCMS (headless CMS)</span></span>
+                <span class="tip-row stack"><span>Challenges</span><span class="tip-issues"><span>Limited organic reach</span><span>Schema markup gaps</span><span>Poor Core Web Vitals scores</span></span></span>
+              </span></span> (luxury Canadian travel packages, Jul 2026 – Present): optimised 50+ blogs and published 15+ pages on DatoCMS, with ongoing technical audits and internal linking optimisation.</li>
+              <li><span class="client-tip" tabindex="0" aria-describedby="tip-stride"><strong>Stride Europe</strong><span class="tip" id="tip-stride" role="tooltip">
+                <span class="tip-name">Stride Europe</span>
+                <span class="tip-row"><span>Industry</span><span>Fitness equipment &amp; gym fit-outs</span></span>
+                <span class="tip-row"><span>Market</span><span>Europe</span></span>
+                <span class="tip-row"><span>Business</span><span>B2B &amp; B2C</span></span>
+                <span class="tip-row"><span>Tech</span><span>Odoo ERP (website &amp; eCommerce)</span></span>
+                <span class="tip-row stack"><span>Challenges</span><span class="tip-issues"><span>Weak search visibility</span><span>Hreflang errors</span><span>Pagination issues</span><span>Under-optimised meta tags</span><span>Thin page content</span></span></span>
+              </span></span> (fitness equipment, Odoo ERP, Jan – Jul 2026): optimised landing pages, category pages and blogs, fixing technical and content issues, meta tags and schema. Organic clicks rose 11% vs the previous six months and average Google position improved from 14 to 9.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="role-meta">
+            <span class="when">Jan 2024 – Jul 2024</span>
+            <span class="where">Mississauga, Canada</span>
+          </div>
+          <div class="role-body">
+            <h3>Web &amp; SEO Specialist <span>· No Problem Movers Ltd.</span></h3>
+            <ul>
+              <li>Delivered full-website SEO optimization (On-Page, Off-Page, Technical, Local).</li>
+              <li>Migrated the website from Wix to WordPress without affecting any rankings.</li>
+              <li>Managed PPC campaigns on Google Ads and Facebook Ads, maintaining budget targets and reconciling discrepancies.</li>
+              <li>Developed and implemented a robust link-building strategy aligned with SEO best practices.</li>
+              <li>Recommended and implemented changes to site architecture, content and internal linking to improve keyword rankings.</li>
+              <li>Recommended Core Web Vitals improvements for enhanced user experience.</li>
+              <li>Created marketing graphics, brochures and ad creatives using Canva and AI tools.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="role-meta">
+            <span class="when">Dec 2022 – Jan 2024</span>
+            <span class="where">Mississauga, Canada</span>
+          </div>
+          <div class="role-body">
+            <h3>Digital Marketing Coordinator <span>· DigiGenius</span></h3>
+            <ul>
+              <li>Managed day-to-day SEO activities for 4 in-house and client websites.</li>
+              <li>Ran performance campaigns on Google, Facebook and Instagram for lead capture.</li>
+              <li>Built quality backlinks and managed backlink profiles to strengthen domain authority.</li>
+              <li>Developed custom HTML/CSS solutions for specific client requirements.</li>
+              <li>Managed local SEO and directory submissions using BrightLocal.</li>
+              <li>Maintained SEO keyword and traffic trend charts to monitor organic growth.</li>
+              <li>Coordinated with the PPC team on paid search campaigns for internal brands.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="role-meta">
+            <span class="when">May 2019 – Feb 2021</span>
+            <span class="where">New Delhi, India</span>
+          </div>
+          <div class="role-body">
+            <h3>SEO Specialist <span>· TechMagnate</span></h3>
+            <ul>
+              <li>Managed off-page SEO for major client Bajaj Finserv, building 50+ backlinks weekly on new domains.</li>
+              <li>Executed outreach for guest posting, consistently meeting a target of 30+ guest posts per month.</li>
+              <li>Created a new blog section page that achieved 50,000+ organic visits within a month, ranking for "Pradhan Mantri Awas Yojana" keywords.</li>
+              <li>Grew a Quora profile to 30,000–40,000 views within one month through niche Q&amp;A engagement.</li>
+              <li>Executed on-page optimizations: page titles, meta descriptions, canonicals, URLs and internal linking.</li>
+              <li>Transitioned to the On-Page team; handled client-facing SEO for Bajaj Finserv's home loan vertical.</li>
+              <li>Mentored new hires and led training sessions on SEO best practices.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="role">
+          <div class="role-meta">
+            <span class="when">May 2018 – Apr 2019</span>
+            <span class="where">Noida, India</span>
+          </div>
+          <div class="role-body">
+            <h3>SEO Executive <span>· ClixLogix Technologies</span></h3>
+            <ul>
+              <li>Executed off-page SEO for 10+ international clients (social bookmarking, article submission, image/video sharing).</li>
+              <li>Conducted website audits for clients with SEO service queries.</li>
+              <li>Delivered weekly and monthly project performance analysis with management.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="photo-stack">
+        <figure class="portrait">
+          <img src="photos/chirag-portrait.webp" alt="Chirag Arora, Senior SEO Executive" width="960" height="1200" loading="lazy">
+          <figcaption class="badge"><strong>Chirag Arora</strong><span>Delhi, India</span></figcaption>
+        </figure>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">About me</span>
+        <h2 class="h2">Hey, I'm Chirag. <span class="grad">Your search growth partner.</span></h2>
+        <p>I've spent 6+ years in SEO across agencies, SaaS and in-house teams, first in Noida and New Delhi, then in Mississauga, Canada, and now back in India leading SEO at Ksolves, for clients such as Fresh Tracks Canada and Stride Europe.</p>
+        <p>My work sits where technical SEO meets content: clean architecture, keyword strategy and topic clusters, steady link building, and now making sure brands are visible in AI answers as well as blue links.</p>
+        <div class="facts">
+          <div class="fact"><span class="k">2-Year Onsite Certificate</span><span class="v">Marketing Management &amp; Digital Media</span><span class="s">Lambton College, Mississauga · 2021 – 2022</span></div>
+          <div class="fact"><span class="k">Degree</span><span class="v">Bachelor of Computer Applications (BCA)</span><span class="s">Amity University, Noida · 2015 – 2018</span></div>
+        </div>
+        <div><a class="btn btn-primary" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">Learn more on LinkedIn</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section id="toolkit">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Skills &amp; tools</span>
+        <h2 class="h2">My <span class="grad">toolkit</span></h2>
+      </div>
+      <div class="kit">
+        <div class="kit-col">
+          <h3>SEO</h3>
+          <div class="chips"><span class="chip">Technical</span><span class="chip">On-Page</span><span class="chip">Off-Page</span><span class="chip">Local</span><span class="chip">AEO / GEO</span><span class="chip">Keyword Research</span><span class="chip">Content Strategy</span><span class="chip">Link Building</span></div>
+        </div>
+        <div class="kit-col">
+          <h3>Tools</h3>
+          <div class="chips"><span class="chip">Google Analytics</span><span class="chip">Search Console</span><span class="chip">SEMrush</span><span class="chip">Ahrefs</span><span class="chip">Moz</span><span class="chip">Screaming Frog</span><span class="chip">BrightLocal</span><span class="chip">Adobe Analytics</span></div>
+        </div>
+        <div class="kit-col">
+          <h3>Other</h3>
+          <div class="chips"><span class="chip">Google Ads</span><span class="chip">Facebook Ads</span><span class="chip">WordPress</span><span class="chip">HTML / CSS</span><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Canva</span><span class="chip">Figma</span><span class="chip">ClickUp</span><span class="chip">Asana</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Awards &amp; certifications</span>
+        <h2 class="h2">Recognised for <span class="grad">consistent results</span></h2>
+      </div>
+      <div class="awards">
+        <article class="award">
+          <span class="stars" aria-hidden="true">★★</span>
+          <h3>Outstanding Newcomer &amp; Performer of the Quarter</h3>
+          <p>Ksolves India Ltd.</p>
+        </article>
+        <article class="award">
+          <span class="stars" aria-hidden="true">★★★</span>
+          <h3>3× Performer of the Quarter</h3>
+          <p>TechMagnate</p>
+        </article>
+        <article class="award">
+          <span class="stars" aria-hidden="true">✓</span>
+          <h3>Certified in SEO, marketing and AI</h3>
+          <p>SEMrush SEO · HubSpot Marketing · Claude AI (Anthropic)</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">FAQs</span>
+        <h2 class="h2">Questions people <span class="grad">ask me</span></h2>
+      </div>
+      <div class="faqs">
+        <details class="faq">
+          <summary><span>Who is Chirag Arora?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Chirag Arora is a Senior SEO Executive at Ksolves, where he manages SEO for the Ksolves website. He has 6+ years of experience in technical SEO, content strategy, link building and AI search visibility (AEO/GEO), working with agencies, SaaS companies and in-house teams in India and Canada.</p>
+        </details>
+        <details class="faq">
+          <summary><span>What makes your SEO approach different?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>I optimise for two audiences: Google's blue links and AI answer engines like ChatGPT, Perplexity and Google AI Overviews. At Ksolves, that approach grew AI-search traffic 22x and AI-sourced leads ~85x.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Have you worked with international clients?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Yes. I've worked with businesses in India, Canada and Europe, including Fresh Tracks Canada (luxury travel), Stride Europe (fitness equipment) and No Problem Movers (Mississauga). Early in my career, I audited sites for 10+ international clients at ClixLogix and built backlinks for their target keywords.</p>
+        </details>
+        <details class="faq">
+          <summary><span>What is AEO and GEO, and why does it matter?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>AEO (Answer Engine Optimisation) and GEO (Generative Engine Optimisation) help your brand get cited in AI-generated answers. More buyers now ask ChatGPT or Perplexity instead of searching Google, so if AI tools don't mention you, you're invisible to those buyers.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Can you get my brand mentioned in ChatGPT or Google AI Overviews?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>No one can guarantee AI citations. But you can make your brand much easier to cite with answer-ready content, clear entity signals, structured data and authoritative mentions. These are the same methods I used to grow AI-sourced leads ~85x at Ksolves.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Is traditional SEO still worth it with AI search growing?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Yes. AI answer engines pull heavily from pages that already rank well and are technically sound. Strong technical SEO, content and backlinks are still the foundation, and AEO/GEO builds on top of them.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Which industries have you worked in?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Technology services (Salesforce, AI/ML, Big Data, DevOps), finance (Bajaj Finserv), travel, fitness eCommerce, local services and moving companies. The industry changes, but the method stays the same: fix the technical base, then build content and authority.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Which CMS platforms have you worked with?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>WordPress, Wix, DatoCMS (headless) and Odoo. I've also migrated a site from Wix to WordPress with zero ranking loss.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Do you handle local SEO?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Yes. I've managed Google Business Profiles, citations and local rankings with BrightLocal for businesses in Canada. One example is the No Problem Movers Mississauga location, where local calls doubled.</p>
+        </details>
+        <details class="faq">
+          <summary><span>How long does SEO take to show results?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Technical fixes can show impact within weeks. Content and authority usually take 3-6 months to compound. A new blog section I launched at TechMagnate drove 50,000+ organic visits in its first month, but results depend on competition and the site's starting point.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Do you lead teams or work hands-on?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Both. At Ksolves I lead a 6-member team (writers, an SEO executive, a developer and a designer), and I'm still hands-on with audits, keyword strategy and client projects like Fresh Tracks Canada.</p>
+        </details>
+        <details class="faq">
+          <summary><span>What's the SEO win you're proudest of?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>At Ksolves, I analysed our Big Data technology pages and spotted a gap: we had no dedicated support pages for each technology. I proposed separate support pages for each one, along with matching migration pages. The search volume was low, but the intent was high. People searching those terms needed help right away. Within a short time, those pages started bringing in quality leads. It's a reminder that the best keyword isn't always the biggest one.</p>
+        </details>
+        <details class="faq">
+          <summary><span>What SEO myth do you wish would die?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>"SEO is dead because of AI." The opposite is true: AI search rewards the same fundamentals, and the stakes are higher.</p>
+        </details>
+        <details class="faq">
+          <summary><span>Why did you move from Canada back to India?</span><span class="faq-ic" aria-hidden="true"></span></summary>
+          <p>Family. The plan was always to settle in India with my family. My years in Mississauga gave me hands-on experience with Canadian businesses and markets, and I now bring that to clients in Canada, Europe and beyond, working from India.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-box">
+        <span class="status"><span class="dot"></span>Let's talk SEO</span>
+        <h2>Let's grow your <span class="grad">organic visibility</span></h2>
+        <p class="lead">Whether you need a technical audit, a content strategy or visibility in AI search, send me a message on LinkedIn.</p>
+        <div class="hero-ctas" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            Message me on LinkedIn
+          </a>
+        </div>
+        <div class="contact-row">
+          <button class="copy" id="copy-email" type="button" data-copy="chirag.arora0777@hotmail.com">chirag.arora0777@hotmail.com <small>Copy</small></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Chirag Arora · Senior SEO Executive · Delhi, India</span>
+    <nav aria-label="Footer">
+      <a href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#services">Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#top">Back to top ↑</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Copy buttons
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var label = btn.querySelector('small');
+    function done(msg) { label.textContent = msg; setTimeout(function () { label.textContent = 'Copy'; }, 1600); }
+    try {
+      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { selectText(btn); done('Selected'); });
+    } catch (e) { selectText(btn); done('Selected'); }
+  });
+});
+function selectText(el) {
+  var r = document.createRange(); r.selectNodeContents(el.firstChild);
+  var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+}
+
+// Decorative card backgrounds drawn on canvas (SEO-flavoured: traffic spike, link bars, entity graph)
+function drawArt(c) {
+  var rect = c.getBoundingClientRect();
+  var dpr = window.devicePixelRatio || 1;
+  var w = rect.width, h = rect.height;
+  if (!w || !h) return;
+  c.width = w * dpr; c.height = h * dpr;
+  var x = c.getContext('2d'); x.scale(dpr, dpr); x.clearRect(0, 0, w, h);
+  var type = c.getAttribute('data-art');
+  var light = document.documentElement.getAttribute('data-theme') === 'light';
+  var INK = light ? '0,0,0' : '255,255,255', G = light ? '#22b347' : G, GR = light ? '34,179,71' : '97,239,102';
+  x.strokeStyle = 'rgba(' + INK + ',0.06)'; x.lineWidth = 1;
+  for (var gx = 0; gx < w; gx += 32) { x.beginPath(); x.moveTo(gx + .5, 0); x.lineTo(gx + .5, h); x.stroke(); }
+  for (var gy = 0; gy < h; gy += 32) { x.beginPath(); x.moveTo(0, gy + .5); x.lineTo(w, gy + .5); x.stroke(); }
+  if (type === 'spike') {
+    var pts = [], n = 24;
+    for (var i = 0; i <= n; i++) {
+      var t = i / n, base = h * 0.62 - t * 30 + Math.sin(i * 1.7) * 6;
+      if (t > 0.62) base -= Math.pow((t - 0.62) / 0.38, 1.6) * h * 0.45;
+      pts.push([t * w, base]);
+    }
+    var g = x.createLinearGradient(0, 0, 0, h); g.addColorStop(0, 'rgba(' + GR + ',0.28)'); g.addColorStop(1, 'rgba(' + GR + ',0)');
+    x.beginPath(); x.moveTo(0, h); pts.forEach(function (p) { x.lineTo(p[0], p[1]); }); x.lineTo(w, h); x.closePath(); x.fillStyle = g; x.fill();
+    x.beginPath(); pts.forEach(function (p, k) { k ? x.lineTo(p[0], p[1]) : x.moveTo(p[0], p[1]); }); x.strokeStyle = G; x.lineWidth = 2; x.stroke();
+    var last = pts[pts.length - 1]; x.beginPath(); x.arc(last[0] - 4, last[1] + 2, 4, 0, Math.PI * 2); x.fillStyle = G; x.fill();
+  } else if (type === 'bars') {
+    var bw = 18, gap = 12, count = Math.floor((w - 24) / (bw + gap));
+    for (var b = 0; b < count; b++) {
+      var bh = h * (0.15 + 0.42 * (b / count)) + (b % 3) * 8;
+      x.fillStyle = b === count - 1 ? G : 'rgba(' + INK + ',0.12)';
+      x.fillRect(24 + b * (bw + gap), h * 0.75 - bh, bw, bh);
+    }
+  } else if (type === 'nodes') {
+    var cx = w * 0.5, cy = h * 0.34, R = Math.min(w, h) * 0.24;
+    var nodes = [];
+    for (var k = 0; k < 6; k++) { var a = -Math.PI / 2 + k * Math.PI / 3; nodes.push([cx + Math.cos(a) * R, cy + Math.sin(a) * R]); }
+    x.strokeStyle = 'rgba(' + INK + ',0.18)'; x.lineWidth = 1.2;
+    nodes.forEach(function (p) { x.beginPath(); x.moveTo(cx, cy); x.lineTo(p[0], p[1]); x.stroke(); });
+    for (var m = 0; m < 6; m++) { var p1 = nodes[m], p2 = nodes[(m + 1) % 6]; x.beginPath(); x.moveTo(p1[0], p1[1]); x.lineTo(p2[0], p2[1]); x.stroke(); }
+    nodes.forEach(function (p) { x.beginPath(); x.arc(p[0], p[1], 7, 0, Math.PI * 2); x.fillStyle = (light ? '#ececea' : '#2a2a2a'); x.fill(); x.strokeStyle = 'rgba(' + INK + ',0.32)'; x.stroke(); });
+    x.beginPath(); x.arc(cx, cy, 12, 0, Math.PI * 2); x.fillStyle = G; x.fill();
+  } else if (type === 'pin') {
+    var px = w * 0.62, py = h * 0.5;
+    for (var r = 1; r <= 4; r++) { x.beginPath(); x.ellipse(px, py + 26, r * 34, r * 12, 0, 0, Math.PI * 2); x.strokeStyle = 'rgba(' + GR + ',' + (0.4 - r * 0.08) + ')'; x.lineWidth = 1.2; x.stroke(); }
+    x.beginPath(); x.moveTo(px, py + 26); x.bezierCurveTo(px - 26, py - 4, px - 22, py - 40, px, py - 40); x.bezierCurveTo(px + 22, py - 40, px + 26, py - 4, px, py + 26);
+    x.fillStyle = G; x.fill();
+    x.beginPath(); x.arc(px, py - 18, 8, 0, Math.PI * 2); x.fillStyle = (light ? '#ffffff' : '#1b1b1b'); x.fill();
+  } else if (type === 'climb') {
+    var steps = 6, sw = w / steps, ys = [];
+    for (var s = 0; s < steps; s++) ys.push(h * 0.62 - Math.pow(s / (steps - 1), 1.5) * h * 0.42);
+    var cg = x.createLinearGradient(0, 0, 0, h); cg.addColorStop(0, 'rgba(' + GR + ',0.24)'); cg.addColorStop(1, 'rgba(' + GR + ',0)');
+    x.beginPath(); x.moveTo(0, h); ys.forEach(function (y, k) { x.lineTo(k * sw, y); x.lineTo((k + 1) * sw, y); }); x.lineTo(w, h); x.closePath(); x.fillStyle = cg; x.fill();
+    x.beginPath(); ys.forEach(function (y, k) { k ? x.lineTo(k * sw, y) : x.moveTo(0, y); x.lineTo((k + 1) * sw, y); }); x.strokeStyle = G; x.lineWidth = 2; x.stroke();
+  }
+}
+
+// Wins carousel: arrows scroll by one card; disabled at either end
+(function () {
+  var track = document.getElementById('wins-track');
+  if (!track) return;
+  var btns = document.querySelectorAll('.wins-btn');
+  function step() { var c = track.querySelector('.win'); return c ? c.getBoundingClientRect().width + 16 : track.clientWidth; }
+  function sync() {
+    var max = track.scrollWidth - track.clientWidth - 2;
+    btns.forEach(function (b) { b.disabled = b.getAttribute('data-dir') === '-1' ? track.scrollLeft <= 2 : track.scrollLeft >= max; });
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { track.scrollBy({ left: step() * Number(b.getAttribute('data-dir')), behavior: 'smooth' }); }); });
+  track.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: step() * (e.key === 'ArrowRight' ? 1 : -1), behavior: 'smooth' }); }
+  });
+  track.addEventListener('scroll', sync, { passive: true });
+  window.addEventListener('resize', sync);
+  sync();
+})();
+function drawAll() { document.querySelectorAll('.win-art').forEach(drawArt); }
+drawAll();
+var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
+
+// Theme toggle: flips data-theme on <html>, remembers the choice, redraws canvas art in the new palette
+(function () {
+  var root = document.documentElement, btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+  function label() {
+    var light = root.getAttribute('data-theme') === 'light';
+    var t = light ? 'Switch to dark mode' : 'Switch to light mode';
+    btn.setAttribute('aria-label', t); btn.title = t;
+  }
+  btn.addEventListener('click', function () {
+    var light = root.getAttribute('data-theme') !== 'light';
+    if (light) root.setAttribute('data-theme', 'light'); else root.removeAttribute('data-theme');
+    try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+    label(); drawAll();
+  });
+  label();
+})();
+</script>
+</body>
+</html>
