@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ca0777.github.io/sitemap.xml
