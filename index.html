@@ -155,6 +155,8 @@ section { padding-block: 96px; }
 .btn-ghost:hover { background: rgba(255,255,255,.14); }
 .btn svg { width: 16px; height: 16px; flex: none; }
 .nav .btn { padding: 10px 16px; font-size: 14px; }
+.vibe-trigger{white-space:nowrap;flex:none}.nav-inner{min-width:0}.nav-actions{flex:none}
+@media (max-width: 480px) { .nav-inner{padding:6px 6px 6px 10px;gap:8px} .brand-name{display:none} .nav-actions{gap:6px} .vibe-trigger{padding:0 12px;font-size:13px} .nav .btn{padding:10px 14px} }
 
 /* ---------- Shared ---------- */
 .eyebrow {
@@ -648,7 +650,7 @@ footer { padding-block: 40px 56px; }
 <header class="nav">
   <div class="wrap">
     <div class="nav-inner">
-      <a class="brand" href="#top"><span class="brand-mark"><img src="chirag-headshot.webp" alt="" width="30" height="30"></span>Chirag Arora</a>
+      <a class="brand" href="#top"><span class="brand-mark"><img src="chirag-headshot.webp" alt="" width="30" height="30"></span><span class="brand-name">Chirag Arora</span></a>
       <nav class="nav-links" aria-label="Sections">
         <div class="has-mega">
           <a class="mega-trigger" href="services/" aria-haspopup="true" aria-expanded="false" aria-controls="mega">Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>

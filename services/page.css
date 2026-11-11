@@ -228,3 +228,13 @@ footer { padding-block: var(--space-3xl) var(--space-xl); }
   --color-ok: oklch(45% 0.13 150); --color-ok-soft: oklch(93% 0.05 150); --color-bad: oklch(50% 0.17 25); --color-bad-soft: oklch(93% 0.04 25);
 }
 .nav-links .mega .btn { color: var(--color-accent-ink); }
+
+/* Mobile nav fix: keep pill on one line, drop name text on small screens */
+.vibe-trigger { white-space: nowrap; flex: none; }
+.nav-inner { min-width: 0; }
+.nav-actions { flex: none; }
+@media (max-width: 480px) {
+  .nav-inner { padding: 6px 6px 6px 10px; gap: 8px; }
+  .brand-name { display: none; }
+  .vibe-trigger { padding: 0 12px; font-size: 13px; }
+}
