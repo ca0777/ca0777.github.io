@@ -152,12 +152,6 @@
 .diff-row b { font: 500 var(--text-md)/1.5 var(--font-outlier); color: var(--color-ink-2); padding-inline: var(--space-md); }
 .diff-row .minus { background: var(--color-bad-soft); text-decoration: line-through; text-decoration-color: var(--color-bad); color: var(--color-ink-2); }
 .diff-row .plus { background: var(--color-ok-soft); }
-.diff-note { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--color-paper-3); }
-.diff-note div { padding: var(--space-md) var(--space-lg); border-right: 1px solid var(--color-rule); }
-.diff-note div:last-child { border-right: 0; }
-.diff-note dt { font-size: var(--text-sm); color: var(--color-muted); }
-.diff-note dd { margin: var(--space-3xs) 0 0; }
-.diff-note .measured { color: var(--color-cool); }
 
 /* ---------- Questions ---------- */
 .faq-sec { padding-block: 0 var(--section-gap); }
@@ -207,8 +201,6 @@ footer { padding-block: var(--space-3xl) var(--space-xl); }
   .rp-meta div:nth-child(3) { grid-column: 1 / -1; border-top: 1px solid var(--color-rule); border-right: 0; }
   .diff-cols, .diff-row { grid-template-columns: 32px minmax(0, 1fr); }
   .diff-cols span:nth-child(3), .diff-row span:nth-child(3) { grid-column: 2; }
-  .diff-note { grid-template-columns: minmax(0, 1fr); }
-  .diff-note div { border-right: 0; border-bottom: 1px solid var(--color-rule); }
   .faq p { padding-right: 0; }
   .faqs { grid-template-columns: minmax(0, 1fr); }
   .foot-links span { margin-left: 0; flex-basis: 100%; }
