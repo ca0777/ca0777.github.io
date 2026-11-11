@@ -252,7 +252,7 @@ section { padding-block: 96px; }
 .svc h3 { font-size: 22px; line-height: 1.3; }
 .svc .tag { font-size: 14px; font-weight: 600; color: var(--green); }
 .svc p { color: var(--muted); font-size: 15px; }
-.center-cta { display: flex; justify-content: center; margin-top: 40px; }
+.center-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 40px; }
 
 /* ---------- Selected wins ---------- */
 /* Manual carousel: native horizontal scroll with snap, arrow buttons step one card */
@@ -434,6 +434,35 @@ footer { padding-block: 40px 56px; }
 .faq[open] summary { color: var(--fg); }
 .faq p { padding: 0 24px 22px; color: var(--muted); font-size: 15px; max-width: 760px; }
 @media (max-width: 809px) { .faq summary { padding: 18px 20px; font-size: 16px; } .faq p { padding: 0 20px 18px; } }
+
+/* ---------- Services mega menu ---------- */
+.nav .wrap { position: relative; }
+.has-mega { display: flex; align-items: center; }
+.mega-trigger { display: inline-flex; align-items: center; gap: 6px; }
+.mega-trigger svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
+.has-mega:hover .mega-trigger, .has-mega.open .mega-trigger, .has-mega:focus-within .mega-trigger { color: var(--fg); }
+.has-mega:hover .mega-trigger svg, .has-mega.open .mega-trigger svg { transform: rotate(180deg); }
+.mega { position: absolute; left: 0; right: 0; top: 100%; padding: 0 24px; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .2s ease, transform .2s ease, visibility .2s; z-index: 60; }
+.has-mega:hover .mega, .has-mega.open .mega, .has-mega:focus-within .mega { opacity: 1; visibility: visible; transform: none; }
+.mega::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
+.mega-panel { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); background: var(--surface); border-radius: 20px; box-shadow: 0 24px 70px rgba(0,0,0,.38), inset 0 0 0 1px var(--line); overflow: hidden; color: var(--fg); font-size: 14px; }
+.mega-lead { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 16px; padding: 32px 28px; background: var(--surface-2); min-height: 380px; }
+.mega-reading { font-size: 40px; font-weight: 600; letter-spacing: -.03em; line-height: 1; margin-bottom: auto; }
+.mega-reading small { display: block; margin-top: 8px; font-size: 13px; font-weight: 400; letter-spacing: 0; line-height: 1.4; color: var(--muted); max-width: 26ch; }
+.mega-lead h3 { font-size: 24px; line-height: 1.2; letter-spacing: -.02em; max-width: 22ch; }
+.mega-body { padding: 28px 32px 22px; display: grid; gap: 14px; }
+.mega-title { font-size: 24px; font-weight: 600; letter-spacing: -.02em; color: var(--fg); }
+.mega-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+.mega-list li { border-bottom: 1px solid var(--line); }
+.mega-list a { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 0; color: var(--fg); }
+.mega-list a:hover strong { color: var(--green); }
+.mega-ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--surface-2); color: var(--muted); }
+.mega-ic svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.mega-list strong { display: block; font-size: 15px; font-weight: 600; transition: color .2s ease; }
+.mega-list span span { display: block; font-size: 13px; color: var(--muted); line-height: 1.4; }
+.mega-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--muted); }
+.nav .mega .btn { color: var(--bg); }
+@media (prefers-reduced-motion: reduce) { .mega, .mega-trigger svg { transition: none; } }
 </style>
 <script type="application/ld+json">
 {
@@ -621,7 +650,32 @@ footer { padding-block: 40px 56px; }
     <div class="nav-inner">
       <a class="brand" href="#top"><span class="brand-mark"><img src="chirag-headshot.webp" alt="" width="30" height="30"></span>Chirag Arora</a>
       <nav class="nav-links" aria-label="Sections">
-        <a href="#services">Services</a>
+        <div class="has-mega">
+          <a class="mega-trigger" href="services/" aria-haspopup="true" aria-expanded="false" aria-controls="mega">Services <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega" id="mega">
+            <div class="mega-panel">
+              <div class="mega-lead">
+                <div class="mega-reading">22x<small>AI-search traffic at Ksolves India Ltd., 2024 to now</small></div>
+                <h3>SEO and AI-search growth for teams in India, Canada and Europe</h3>
+                <a class="btn btn-primary" href="services/">Explore services</a>
+              </div>
+              <div class="mega-body">
+                <a class="mega-title" href="services/">Services</a>
+                <ul class="mega-list">
+                  <li><a href="services/#technical-seo"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span><span><strong>Technical SEO</strong><span>Crawl, render and index every page</span></span></a></li>
+                  <li><a href="services/#aeo-geo"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 5.6L20 11l-5.6 2.4L12 19l-2.4-5.6L4 11l5.6-2.4z"/></svg></span><span><strong>AEO and GEO</strong><span>Get cited in AI answers</span></span></a></li>
+                  <li><a href="services/#content-strategy"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg></span><span><strong>Keyword and content strategy</strong><span>Topics buyers actually search</span></span></a></li>
+                  <li><a href="services/#link-building"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span><span><strong>Link building</strong><span>Authority from real mentions</span></span></a></li>
+                  <li><a href="services/#local-seo"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><strong>Local SEO</strong><span>Profiles, citations, map pack</span></span></a></li>
+                  <li><a href="services/#international-seo"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg></span><span><strong>International SEO</strong><span>Hreflang and regional markets</span></span></a></li>
+                  <li><a href="services/#ecommerce-seo"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.5l2.2 10.5h9.6L19.5 7H6.4"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></span><span><strong>Ecommerce SEO</strong><span>Category and product pages</span></span></a></li>
+                  <li><a href="services/#paid-analytics"><span class="mega-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><span><strong>Paid ads and analytics</strong><span>Lead-gen with GA4 reporting</span></span></a></li>
+                </ul>
+                <div class="mega-foot"><span>Not sure which fits? Tell me about the site.</span><a class="btn btn-primary" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">Start a project</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <a href="#work">Results</a>
         <a href="#experience">Experience</a>
         <a href="#about">About Me</a>
@@ -654,7 +708,7 @@ footer { padding-block: 40px 56px; }
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="status rise"><img class="status-avatar" src="chirag-headshot.webp" alt="Chirag Arora" width="28" height="28"><span class="dot"></span>Senior SEO Executive at Ksolves</span>
+        <span class="status rise"><img class="status-avatar" src="chirag-headshot.webp" alt="Chirag Arora" width="28" height="28"><span class="dot"></span>Leading SEO at Ksolves India Limited</span>
         <h1 class="rise d1">I'm Chirag! <span class="grad">SEO specialist for search and AI answers</span></h1>
         <p class="lead rise d2">6+ years helping agencies, SaaS companies and in-house teams in India and Canada get found. I combine technical audits, keyword strategy and link building with AI search visibility (AEO/GEO).</p>
         <div class="hero-ctas rise d3">
@@ -778,7 +832,8 @@ footer { padding-block: 40px 56px; }
         </article>
       </div>
       <div class="center-cta">
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">Get in touch on LinkedIn</a>
+        <a class="btn btn-primary" href="services/">Explore services</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/chiragarora0777/" target="_blank" rel="noopener">Get in touch on LinkedIn</a>
       </div>
     </div>
   </section>
@@ -1362,6 +1417,15 @@ var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = s
     label(); drawAll();
   });
   label();
+})();
+
+// Services mega menu: hover opens it (CSS); click, Escape and outside click handle touch and keyboard
+(function () {
+  var mm = document.querySelector('.has-mega'), mt = document.querySelector('.mega-trigger');
+  if (!mm || !mt) return;
+  mt.addEventListener('click', function (e) { if (window.matchMedia('(hover: none)').matches) { e.preventDefault(); var o = mm.classList.toggle('open'); mt.setAttribute('aria-expanded', o ? 'true' : 'false'); } });
+  document.addEventListener('click', function (e) { if (!mm.contains(e.target)) { mm.classList.remove('open'); mt.setAttribute('aria-expanded', 'false'); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { mm.classList.remove('open'); mt.setAttribute('aria-expanded', 'false'); } });
 })();
 </script>
 </body>
