@@ -238,3 +238,7 @@ footer { padding-block: var(--space-3xl) var(--space-xl); }
   .brand-name { display: none; }
   .vibe-trigger { padding: 0 12px; font-size: 13px; }
 }
+@media (max-width: 350px) {
+  .nav-actions { gap: 4px; }
+  .vibe-trigger { padding: 0 10px; font-size: 12px; }
+}
